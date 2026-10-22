@@ -4,6 +4,8 @@
 [![Python](https://img.shields.io/badge/Python-3.10%20%7C%203.11%20%7C%203.12-3776AB.svg?style=flat&logo=python)](https://python.org)
 [![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-EE4C2C.svg?style=flat&logo=pytorch)](https://pytorch.org/)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/indukurunaveenreddy/Dry-Eye-disease?quickstart=1)
+[![Deploy to Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/deploy?repository=indukurunaveenreddy/Dry-Eye-disease&branch=main&mainModule=app.py)
 
 An advanced clinical artificial intelligence platform for **Dry Eye Disease (DED)** screening and multi-source ocular evidence assessment. Combines infrared clinical meibography, real-time facial and ocular tracking, 12-item OSDI symptom burden neural modeling, and 6-stage blink dynamics.
 
@@ -20,7 +22,41 @@ An advanced clinical artificial intelligence platform for **Dry Eye Disease (DED
 
 ---
 
-## 🚀 Getting Started
+
+## ☁️ Run Directly on GitHub (No Local Installation)
+
+You can launch and run this application immediately in the cloud without installing anything on your computer:
+
+### Option 1: 1-Click Cloud Run via GitHub Codespaces ⚡ (Recommended)
+
+Click the button below to launch an instant, interactive cloud container directly inside your browser:
+
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/indukurunaveenreddy/Dry-Eye-disease?quickstart=1)
+
+1. Click **Create new codespace** (or click the badge above).
+2. GitHub Codespaces automatically provisions a Linux environment, installs all dependencies (`requirements.txt`), and launches the application.
+3. When prompted, click **Open in Browser** (or visit the **Ports** tab and click port `8501`).
+4. Log in instantly with persona credentials (e.g. `dr.chen` / `oculo2026`) or click **1-Click Instant Access**.
+
+---
+
+### Option 2: 1-Click Deployment on Streamlit Community Cloud 🌐
+
+Host a permanent public web link connected directly to this GitHub repository:
+
+[![Deploy to Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/deploy?repository=indukurunaveenreddy/Dry-Eye-disease&branch=main&mainModule=app.py)
+
+1. Click the **Deploy to Streamlit** badge above (or visit [share.streamlit.io](https://share.streamlit.io)).
+2. Sign in with GitHub.
+3. Confirm repository settings:
+   - **Repository**: `indukurunaveenreddy/Dry-Eye-disease`
+   - **Branch**: `main`
+   - **Main file path**: `app.py`
+4. Click **Deploy!** Your app will be live at `https://[your-app-name].streamlit.app`.
+
+---
+
+## 🚀 Local Installation & Setup
 
 ### 1. Clone the Repository
 ```bash

@@ -1,0 +1,1774 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Indukuru Naveen Kumar Reddy | Resume</title>
+  <meta name="description"
+    content="Resume of Indukuru Naveen Kumar Reddy - MCA (2024-2026), Python Developer, Software Test Engineer, and Pupil HRV Monitoring Researcher." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap"
+    rel="stylesheet" />
+  <style>
+    /* ─── Reset ───────────────────────────────────────────────────────── */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+
+    :root {
+      --bg: #060914;
+      --card: rgba(255, 255, 255, 0.05);
+      --cb: rgba(255, 255, 255, 0.09);
+      --a1: #7c3aed;
+      --a2: #06b6d4;
+      --a3: #f472b6;
+      --gold: #f59e0b;
+      --tp: #f1f5f9;
+      --ts: #94a3b8;
+      --tm: #4b5563;
+      --rl: 16px;
+      --rm: 10px;
+      --rs: 6px;
+      --fb: "Plus Jakarta Sans", sans-serif;
+      --fh: "Outfit", sans-serif;
+      --fm: "Fira Code", monospace;
+      --tr: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    body {
+      font-family: var(--fb);
+      background: var(--bg);
+      color: var(--tp);
+      line-height: 1.65;
+      overflow-x: hidden;
+      font-size: 15px
+    }
+
+    /* ─── Ambient Background ───────────────────────────────────────────── */
+    .bg-wrap {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      overflow: hidden
+    }
+
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(130px);
+      opacity: .36;
+      animation: floatOrb 11s ease-in-out infinite
+    }
+
+    .orb.o1 {
+      width: 620px;
+      height: 620px;
+      background: var(--a1);
+      top: -160px;
+      left: -200px
+    }
+
+    .orb.o2 {
+      width: 500px;
+      height: 500px;
+      background: var(--a2);
+      bottom: -130px;
+      right: -160px;
+      animation-delay: 4s
+    }
+
+    .orb.o3 {
+      width: 300px;
+      height: 300px;
+      background: var(--a3);
+      top: 44%;
+      left: 58%;
+      animation-delay: 8s
+    }
+
+    @keyframes floatOrb {
+
+      0%,
+      100% {
+        transform: translate(0, 0) scale(1)
+      }
+
+      50% {
+        transform: translate(22px, -28px) scale(1.05)
+      }
+    }
+
+    .grid-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, .02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, .02) 1px, transparent 1px);
+      background-size: 52px 52px
+    }
+
+    /* ─── Print button ─────────────────────────────────────────────────── */
+    .print-btn {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 13px 24px;
+      background: linear-gradient(135deg, var(--a1), var(--a2));
+      border: none;
+      border-radius: 50px;
+      color: #fff;
+      font-family: var(--fh);
+      font-size: .92rem;
+      font-weight: 700;
+      cursor: pointer;
+      letter-spacing: .3px;
+      box-shadow: 0 8px 32px rgba(124, 58, 237, .55);
+      transition: var(--tr)
+    }
+
+    .print-btn:hover {
+      transform: translateY(-3px) scale(1.04);
+      box-shadow: 0 14px 44px rgba(124, 58, 237, .72)
+    }
+
+    /* ─── Page Wrapper ─────────────────────────────────────────────────── */
+    .page {
+      max-width: 900px;
+      margin: 36px auto;
+      padding: 0 24px 72px
+    }
+
+    /* ─── Header ───────────────────────────────────────────────────────── */
+    .rh {
+      background: linear-gradient(135deg,
+          rgba(124, 58, 237, .18) 0%,
+          rgba(6, 182, 212, .12) 55%,
+          rgba(244, 114, 182, .09) 100%);
+      border: 1px solid rgba(124, 58, 237, .35);
+      border-radius: 20px;
+      padding: 36px 42px 30px;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 20px
+    }
+
+    .rh::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--a1), var(--a2), var(--a3))
+    }
+
+    .rh::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(6, 182, 212, .08), transparent 70%);
+      pointer-events: none
+    }
+
+    .rh-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 20px;
+      flex-wrap: wrap
+    }
+
+    .rh-name {
+      font-family: var(--fh);
+      font-size: 2.65rem;
+      font-weight: 900;
+      background: linear-gradient(130deg, #ffffff 15%, #a5f3fc 55%, var(--a2) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: -.6px;
+      line-height: 1.08
+    }
+
+    .rh-title {
+      font-family: var(--fm);
+      font-size: .82rem;
+      color: var(--a2);
+      margin-top: 8px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      opacity: .9
+    }
+
+    .rh-status {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(6, 182, 212, .12);
+      border: 1px solid rgba(6, 182, 212, .35);
+      border-radius: 50px;
+      padding: 9px 18px;
+      white-space: nowrap;
+      flex-shrink: 0
+    }
+
+    .pulse {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #22c55e;
+      animation: pulse 2s infinite
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        box-shadow: 0 0 0 0 rgba(34, 197, 94, .45)
+      }
+
+      50% {
+        box-shadow: 0 0 0 7px rgba(34, 197, 94, 0)
+      }
+    }
+
+    .rh-status span {
+      font-size: .78rem;
+      color: var(--a2);
+      font-weight: 600;
+      letter-spacing: .3px
+    }
+
+    .crow {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 18px
+    }
+
+    .cpill {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, .05);
+      border: 1px solid rgba(255, 255, 255, .12);
+      border-radius: 50px;
+      padding: 7px 16px;
+      font-size: .82rem;
+      color: var(--ts);
+      text-decoration: none;
+      transition: var(--tr)
+    }
+
+    .cpill:hover {
+      border-color: var(--a2);
+      color: var(--a2);
+      background: rgba(6, 182, 212, .08);
+      transform: translateY(-2px)
+    }
+
+    /* ─── Section ──────────────────────────────────────────────────────── */
+    .sec {
+      margin-bottom: 18px
+    }
+
+    .sl {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      margin-bottom: 12px
+    }
+
+    .ibox {
+      width: 34px;
+      height: 34px;
+      border-radius: var(--rs);
+      display: grid;
+      place-items: center;
+      flex-shrink: 0
+    }
+
+    .sl h2 {
+      font-family: var(--fh);
+      font-size: 1rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      color: var(--tp)
+    }
+
+    .sdiv {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(124, 58, 237, .55), rgba(255, 255, 255, .04))
+    }
+
+    /* ─── Glass Card ───────────────────────────────────────────────────── */
+    .gc {
+      background: var(--card);
+      border: 1px solid var(--cb);
+      border-radius: var(--rl);
+      padding: 20px 24px;
+      transition: var(--tr);
+      position: relative;
+      overflow: hidden
+    }
+
+    .gc::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(124, 58, 237, .45), transparent);
+      opacity: 0;
+      transition: var(--tr)
+    }
+
+    .gc:hover::before {
+      opacity: 1
+    }
+
+    .gc:hover {
+      border-color: rgba(124, 58, 237, .3);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 36px rgba(124, 58, 237, .12)
+    }
+
+    .obj-card {
+      border-left: 3px solid var(--a1);
+      border-radius: 0 var(--rl) var(--rl) 0
+    }
+
+    .obj-card p {
+      font-size: .92rem;
+      color: var(--ts);
+      line-height: 1.8
+    }
+
+    .obj-card strong {
+      color: var(--a2)
+    }
+
+    /* ─── Skills ───────────────────────────────────────────────────────── */
+    .sk-grid {
+      display: grid;
+      gap: 11px
+    }
+
+    .sk-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px
+    }
+
+    .sk-lbl {
+      font-size: .78rem;
+      font-weight: 700;
+      color: var(--ts);
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      min-width: 168px;
+      padding-top: 3px
+    }
+
+    .tg {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px
+    }
+
+    .tag {
+      background: rgba(255, 255, 255, .06);
+      border: 1px solid rgba(255, 255, 255, .12);
+      border-radius: var(--rs);
+      padding: 3px 11px;
+      font-size: .76rem;
+      color: var(--tp);
+      transition: var(--tr)
+    }
+
+    .tag:hover {
+      background: rgba(124, 58, 237, .18);
+      border-color: var(--a1);
+      color: #c4b5fd
+    }
+
+    .tv {
+      background: rgba(124, 58, 237, .14);
+      border-color: rgba(124, 58, 237, .38);
+      color: #a78bfa
+    }
+
+    .tc {
+      background: rgba(6, 182, 212, .12);
+      border-color: rgba(6, 182, 212, .35);
+      color: var(--a2)
+    }
+
+    .tp2 {
+      background: rgba(244, 114, 182, .12);
+      border-color: rgba(244, 114, 182, .35);
+      color: var(--a3)
+    }
+
+    /* ─── Education ────────────────────────────────────────────────────── */
+    .edu-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px
+    }
+
+    .edu-e {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 14px 18px;
+      background: var(--card);
+      border: 1px solid var(--cb);
+      border-radius: var(--rm);
+      transition: var(--tr);
+      position: relative;
+      overflow: hidden
+    }
+
+    .edu-e::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 3.5px;
+      background: linear-gradient(180deg, var(--a1), var(--a2))
+    }
+
+    .edu-e:hover {
+      border-color: rgba(124, 58, 237, .35);
+      transform: translateX(4px)
+    }
+
+    .edu-n {
+      font-weight: 700;
+      font-size: .94rem;
+      color: var(--tp)
+    }
+
+    .edu-d {
+      font-size: .8rem;
+      color: var(--a2);
+      margin-top: 3px
+    }
+
+    .edu-s {
+      font-size: .72rem;
+      color: var(--tm);
+      margin-top: 2px
+    }
+
+    .edu-r {
+      text-align: right;
+      flex-shrink: 0
+    }
+
+    .edu-y {
+      font-family: var(--fm);
+      font-size: .78rem;
+      color: var(--ts)
+    }
+
+    .edu-sc {
+      display: inline-block;
+      margin-top: 6px;
+      background: linear-gradient(135deg, var(--a1), var(--a2));
+      border-radius: 50px;
+      padding: 3px 13px;
+      font-family: var(--fm);
+      font-size: .78rem;
+      font-weight: 700;
+      color: #fff
+    }
+
+    /* ─── Projects ─────────────────────────────────────────────────────── */
+    .ph {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 11px;
+      flex-wrap: wrap;
+      margin-bottom: 10px
+    }
+
+    .ptitle {
+      font-family: var(--fh);
+      font-size: 1.02rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--a2), var(--a1));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent
+    }
+
+    .pbadge {
+      font-size: .7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 4px 12px;
+      border-radius: 50px
+    }
+
+    .bhrv {
+      background: rgba(124, 58, 237, .22);
+      border: 1px solid var(--a1);
+      color: #a78bfa
+    }
+
+    .bshop {
+      background: rgba(6, 182, 212, .14);
+      border: 1px solid var(--a2);
+      color: var(--a2)
+    }
+
+    .biris {
+      background: rgba(244, 114, 182, .14);
+      border: 1px solid var(--a3);
+      color: var(--a3)
+    }
+
+    .pdesc {
+      font-size: .86rem;
+      color: var(--ts);
+      line-height: 1.68;
+      margin-bottom: 10px
+    }
+
+    .pbul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px
+    }
+
+    .pbul li {
+      font-size: .84rem;
+      color: var(--ts);
+      padding-left: 18px;
+      position: relative;
+      line-height: 1.58
+    }
+
+    .pbul li::before {
+      content: "\25B8";
+      position: absolute;
+      left: 0;
+      color: var(--a1);
+      font-size: .74rem;
+      top: 2px
+    }
+
+    .trow {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 12px
+    }
+
+    .pcard {
+      margin-bottom: 12px
+    }
+
+    /* ─── Internship ───────────────────────────────────────────────────── */
+    .imeta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-bottom: 11px
+    }
+
+    .mchip {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      background: rgba(255, 255, 255, .05);
+      border: 1px solid rgba(255, 255, 255, .1);
+      border-radius: 50px;
+      padding: 4px 12px;
+      font-size: .74rem;
+      color: var(--ts)
+    }
+
+    .mchip strong {
+      color: var(--tp)
+    }
+
+    /* ─── Certifications ───────────────────────────────────────────────── */
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px
+    }
+
+    .cert-c {
+      background: var(--card);
+      border: 1px solid var(--cb);
+      border-radius: var(--rm);
+      padding: 13px 15px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      transition: var(--tr)
+    }
+
+    .cert-c:hover {
+      border-color: var(--a1);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 26px rgba(124, 58, 237, .18)
+    }
+
+    .cicon {
+      width: 38px;
+      height: 38px;
+      border-radius: var(--rs);
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      font-size: 1.1rem
+    }
+
+    .cname {
+      font-size: .83rem;
+      font-weight: 600;
+      color: var(--tp);
+      line-height: 1.25
+    }
+
+    .ciss {
+      font-size: .72rem;
+      color: var(--ts);
+      margin-top: 3px
+    }
+
+    .cdate {
+      font-family: var(--fm);
+      font-size: .67rem;
+      color: var(--tm);
+      margin-top: 3px
+    }
+
+    /* ─── Achievements ─────────────────────────────────────────────────── */
+    .ach-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px
+    }
+
+    .ach-i {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: var(--card);
+      border: 1px solid var(--cb);
+      border-radius: var(--rm);
+      padding: 12px 16px;
+      transition: var(--tr)
+    }
+
+    .ach-i:hover {
+      border-color: rgba(245, 158, 11, .45);
+      transform: translateX(4px)
+    }
+
+    .aemoji {
+      font-size: 1.35rem;
+      flex-shrink: 0
+    }
+
+    .atxt {
+      font-size: .85rem;
+      color: var(--ts)
+    }
+
+    .atxt strong {
+      color: var(--tp);
+      display: block;
+      margin-bottom: 1px
+    }
+
+    /* ─── Hobbies ──────────────────────────────────────────────────────── */
+    .hrow {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px
+    }
+
+    .hpill {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--card);
+      border: 1px solid var(--cb);
+      border-radius: 50px;
+      padding: 8px 18px;
+      font-size: .82rem;
+      color: var(--ts);
+      transition: var(--tr)
+    }
+
+    .hpill:hover {
+      border-color: var(--a3);
+      color: var(--a3);
+      transform: translateY(-2px)
+    }
+
+    /* ─── Colour helpers ───────────────────────────────────────────────── */
+    .iv {
+      background: rgba(124, 58, 237, .16);
+      color: #a78bfa
+    }
+
+    .ic {
+      background: rgba(6, 182, 212, .16);
+      color: var(--a2)
+    }
+
+    .ip {
+      background: rgba(244, 114, 182, .16);
+      color: var(--a3)
+    }
+
+    .ig {
+      background: rgba(245, 158, 11, .16);
+      color: var(--gold)
+    }
+
+    .ign {
+      background: rgba(34, 197, 94, .16);
+      color: #4ade80
+    }
+
+    /* ─── Page-break (hidden on screen) ───────────────────────────────── */
+    .page-break {
+      display: none
+    }
+
+    /* ══════════════════════════════════════════════════════════════════════
+   PRINT  ─  3 clean A4 pages, no gaps, readable text
+   @page margins are applied by the browser UNIFORMLY on every page.
+   Zero HTML padding inside .page so no double-gap on pages 2 & 3.
+   ══════════════════════════════════════════════════════════════════════ */
+    @page {
+      size: A4;
+      margin: 0;
+    }
+
+    @media print {
+
+      html,
+      body {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact
+      }
+
+      .bg-wrap,
+      .grid-overlay,
+      .print-btn {
+        display: none !important
+      }
+
+      /* @page margin:0 removes browser header/footer (URL, title, date, page no.) */
+      /* Padding on body gives uniform margins on all 3 pages instead */
+      body {
+        background: #fff;
+        color: #111;
+        margin: 0;
+        padding: 14mm 13mm 12mm 13mm
+      }
+
+      .page {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        max-width: 100%
+      }
+
+      /* ── Section spacing ── */
+      .sec {
+        margin-bottom: 8pt
+      }
+
+      .sl {
+        margin-bottom: 6pt;
+        gap: 7pt
+      }
+
+      .sl h2 {
+        font-size: 8.5pt;
+        letter-spacing: 1.8pt;
+        color: #1e1b4b !important;
+        font-weight: 800
+      }
+
+      .ibox {
+        width: 20pt;
+        height: 20pt
+      }
+
+      .sdiv {
+        background: linear-gradient(90deg, rgba(124, 58, 237, .4), rgba(255, 255, 255, .04)) !important
+      }
+
+      /* ── Header ── */
+      .rh {
+        background: linear-gradient(135deg, #f0edff, #e8f7ff 60%, #fff0fa) !important;
+        border: 1.5px solid #c4b5fd !important;
+        padding: 11pt 14pt 10pt;
+        margin-bottom: 7pt;
+        border-radius: 6pt
+      }
+
+      .rh::before {
+        height: 3pt;
+        background: linear-gradient(90deg, #7c3aed, #06b6d4, #f472b6) !important
+      }
+
+      .rh::after {
+        display: none
+      }
+
+      .rh-name {
+        font-size: 20pt;
+        color: #1e1b4b !important;
+        -webkit-text-fill-color: #1e1b4b;
+        letter-spacing: -.3pt
+      }
+
+      .rh-title {
+        font-size: 7pt;
+        color: #4338ca !important;
+        margin-top: 3pt;
+        letter-spacing: 1.5pt
+      }
+
+      .rh-status {
+        padding: 3pt 10pt;
+        font-size: 6.5pt;
+        border: 1px solid #a5b4fc !important;
+        background: #ede9fe !important;
+        border-radius: 20pt
+      }
+
+      .rh-status span {
+        color: #4338ca !important;
+        font-size: 6.5pt
+      }
+
+      .pulse {
+        background: #22c55e
+      }
+
+      .crow {
+        gap: 5pt;
+        margin-top: 8pt
+      }
+
+      .cpill {
+        padding: 3pt 9pt;
+        font-size: 6.5pt;
+        background: #f5f3ff !important;
+        border: 1px solid #c4b5fd !important;
+        color: #3730a3 !important;
+        border-radius: 20pt
+      }
+
+      /* ── Objective card ── */
+      .gc {
+        padding: 8pt 11pt !important;
+        border-radius: 5pt !important;
+        border: 1px solid #ddd8f5 !important;
+        background: #faf9ff !important;
+        box-shadow: none !important
+      }
+
+      .gc::before,
+      .gc:hover {
+        transform: none !important;
+        opacity: 0 !important
+      }
+
+      .obj-card {
+        border-left: 3pt solid #7c3aed !important;
+        border-radius: 0 5pt 5pt 0 !important
+      }
+
+      .obj-card p {
+        font-size: 8pt !important;
+        line-height: 1.6 !important;
+        color: #222 !important
+      }
+
+      .obj-card strong {
+        color: #4338ca !important
+      }
+
+      /* ── Skills ── */
+      .sk-grid {
+        gap: 5pt
+      }
+
+      .sk-row {
+        gap: 8pt
+      }
+
+      .sk-lbl {
+        font-size: 7pt;
+        min-width: 115pt;
+        color: #444 !important;
+        font-weight: 700
+      }
+
+      .tg {
+        gap: 3pt
+      }
+
+      .tag {
+        font-size: 6.5pt;
+        padding: 1.5pt 6.5pt;
+        border-radius: 4pt
+      }
+
+      .tv {
+        background: #ede9fe !important;
+        color: #4338ca !important;
+        border-color: #c4b5fd !important
+      }
+
+      .tc {
+        background: #e0f2fe !important;
+        color: #0369a1 !important;
+        border-color: #7dd3fc !important
+      }
+
+      .tp2 {
+        background: #fce7f3 !important;
+        color: #9d174d !important;
+        border-color: #f9a8d4 !important
+      }
+
+      .tag:not(.tv):not(.tc):not(.tp2) {
+        background: #f1f5f9 !important;
+        color: #374151 !important;
+        border-color: #cbd5e1 !important
+      }
+
+      /* ── Education ── */
+      .edu-list {
+        gap: 5pt
+      }
+
+      .edu-e {
+        padding: 7pt 11pt;
+        background: #faf9ff !important;
+        border: 1px solid #ddd8f5 !important;
+        border-radius: 4pt
+      }
+
+      .edu-e::before {
+        width: 3pt;
+        background: linear-gradient(180deg, #7c3aed, #06b6d4) !important
+      }
+
+      .edu-n {
+        font-size: 8.5pt;
+        color: #111 !important;
+        font-weight: 700
+      }
+
+      .edu-d {
+        font-size: 7.5pt;
+        color: #4338ca !important;
+        margin-top: 1.5pt
+      }
+
+      .edu-s {
+        font-size: 7pt;
+        color: #666 !important
+      }
+
+      .edu-y {
+        font-size: 7.5pt;
+        color: #555 !important
+      }
+
+      .edu-sc {
+        font-size: 7pt;
+        padding: 2pt 8pt;
+        margin-top: 3pt;
+        background: linear-gradient(135deg, #7c3aed, #06b6d4) !important;
+        color: #fff !important
+      }
+
+      /* ── Projects ── */
+      .pcard {
+        margin-bottom: 7pt
+      }
+
+      .ph {
+        margin-bottom: 5pt
+      }
+
+      .ptitle {
+        font-size: 9pt !important;
+        color: #3730a3 !important;
+        -webkit-text-fill-color: #3730a3;
+        font-weight: 700
+      }
+
+      .pbadge {
+        font-size: 6pt;
+        padding: 2pt 7pt
+      }
+
+      .bhrv {
+        background: #ede9fe !important;
+        color: #4338ca !important;
+        border-color: #a78bfa !important
+      }
+
+      .bshop {
+        background: #e0f2fe !important;
+        color: #0369a1 !important;
+        border-color: #7dd3fc !important
+      }
+
+      .biris {
+        background: #fce7f3 !important;
+        color: #9d174d !important;
+        border-color: #f9a8d4 !important
+      }
+
+      .pdesc {
+        font-size: 7.5pt !important;
+        line-height: 1.5 !important;
+        color: #333 !important;
+        margin-bottom: 5pt
+      }
+
+      .pbul {
+        gap: 3.5pt
+      }
+
+      .pbul li {
+        font-size: 7.5pt !important;
+        line-height: 1.48 !important;
+        color: #333 !important
+      }
+
+      .pbul li::before {
+        color: #7c3aed !important
+      }
+
+      .trow {
+        gap: 3pt;
+        margin-top: 6pt
+      }
+
+      /* ── Internship ── */
+      .imeta {
+        gap: 3.5pt;
+        margin-bottom: 6pt
+      }
+
+      .mchip {
+        font-size: 6.5pt;
+        padding: 2pt 8pt;
+        background: #f1f5f9 !important;
+        border-color: #cbd5e1 !important;
+        color: #374151 !important
+      }
+
+      .mchip strong {
+        color: #111 !important
+      }
+
+      /* ── Certifications ── */
+      .cert-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 5pt !important
+      }
+
+      .cert-c {
+        padding: 7pt 9pt !important;
+        background: #faf9ff !important;
+        border: 1px solid #ddd8f5 !important;
+        border-radius: 4pt;
+        break-inside: avoid
+      }
+
+      .cert-c:hover {
+        transform: none !important;
+        box-shadow: none !important
+      }
+
+      .cicon {
+        width: 24pt;
+        height: 24pt;
+        font-size: .82rem
+      }
+
+      .cname {
+        font-size: 7.5pt;
+        color: #111 !important;
+        font-weight: 600
+      }
+
+      .ciss {
+        font-size: 7pt;
+        color: #555 !important
+      }
+
+      .cdate {
+        font-size: 6.5pt;
+        color: #777 !important
+      }
+
+      /* ── Achievements ── */
+      .ach-list {
+        gap: 4.5pt
+      }
+
+      .ach-i {
+        padding: 6.5pt 11pt;
+        background: #faf9ff !important;
+        border: 1px solid #ddd8f5 !important;
+        border-radius: 4pt
+      }
+
+      .aemoji {
+        font-size: 1rem
+      }
+
+      .atxt {
+        font-size: 7.5pt !important;
+        line-height: 1.48
+      }
+
+      .atxt strong {
+        color: #111 !important;
+        font-size: 7.5pt
+      }
+
+      /* ── Hobbies ── */
+      .hrow {
+        gap: 5pt
+      }
+
+      .hpill {
+        padding: 4pt 11pt;
+        font-size: 7.5pt;
+        background: #f5f3ff !important;
+        border: 1px solid #c4b5fd !important;
+        color: #3730a3 !important;
+        border-radius: 20pt
+      }
+
+      /* ── Page breaks ── */
+      .page-break {
+        display: block !important;
+        break-after: page;
+        page-break-after: always;
+        height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        border: none !important;
+        overflow: hidden !important
+      }
+
+      /* No extra margin after break — @page handles it */
+      .page-break+section {
+        margin-top: 0 !important;
+        padding-top: 0 !important
+      }
+
+      /* No card/row splitting across pages */
+      .gc,
+      .edu-e,
+      .cert-c,
+      .ach-i,
+      .pcard {
+        break-inside: avoid;
+        page-break-inside: avoid
+      }
+    }
+
+    /* ─── Responsive ───────────────────────────────────────────────────── */
+    @media(max-width:640px) {
+      .rh {
+        padding: 24px 20px 20px
+      }
+
+      .rh-name {
+        font-size: 1.75rem
+      }
+
+      .sk-row {
+        flex-direction: column;
+        gap: 5px
+      }
+
+      .sk-lbl {
+        min-width: auto
+      }
+
+      .cert-grid {
+        grid-template-columns: 1fr 1fr
+      }
+
+      .page {
+        padding: 0 14px 50px
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="bg-wrap">
+    <div class="orb o1"></div>
+    <div class="orb o2"></div>
+    <div class="orb o3"></div>
+  </div>
+  <div class="grid-overlay"></div>
+  <button class="print-btn" onclick="window.print()">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="6 9 6 2 18 2 18 9" />
+      <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
+      <rect width="12" height="8" x="6" y="14" />
+    </svg>
+    Print / Save PDF
+  </button>
+
+  <div class="page">
+
+    <!-- HEADER -->
+    <header class="rh">
+      <div class="rh-top">
+        <div>
+          <div class="rh-name">Indukuru Naveen Kumar Reddy</div>
+          <div class="rh-title">&#9889; Python Developer &nbsp;&#183;&nbsp; UI/UX Designer &nbsp;&#183;&nbsp; Automation
+            &amp; Manual Testing</div>
+        </div>
+        <div class="rh-status">
+          <div class="pulse"></div>
+          <span>MCA (2024&ndash;2026) &middot; Open to Opportunities</span>
+        </div>
+      </div>
+      <div class="crow">
+        <a href="mailto:indukurun@gmail.com" class="cpill">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect width="20" height="16" x="2" y="4" rx="2" />
+            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+          </svg>
+          indukurun@gmail.com
+        </a>
+        <a href="tel:+918639866865" class="cpill">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path
+              d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.15 11.9 19.79 19.79 0 0 1 1.08 3.27 2 2 0 0 1 3.05 1.07h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+          </svg>
+          +91-8639866865
+        </a>
+        <a href="https://www.linkedin.com/in/indukuru-naveen-kumar-reddy-1197482a6" target="_blank"
+          rel="noopener noreferrer" class="cpill">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9h2.79v8.37H6.46v-8.37M7.86 6.72a1.63 1.63 0 1 0 0 3.26 1.63 1.63 0 0 0 0-3.26Z" />
+          </svg>
+          indukuru-naveen-kumar-reddy
+        </a>
+        <a href="https://indukurunaveenreddy.github.io/Indukuru-NaveenReddy/" target="_blank" rel="noopener noreferrer"
+          class="cpill">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10" />
+            <path d="M2 12h20" />
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+          </svg>
+          Portfolio
+        </a>
+        <span class="cpill">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+            <circle cx="12" cy="10" r="3" />
+          </svg>
+          Bangalore, India
+        </span>
+      </div>
+    </header>
+
+    <!-- OBJECTIVE -->
+    <section class="sec">
+      <div class="sl">
+        <div class="ibox iv">
+          <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 20h9" />
+            <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" />
+          </svg>
+        </div>
+        <h2>Objective</h2>
+        <div class="sdiv"></div>
+      </div>
+      <div class="gc obj-card">
+        <p>
+          Motivated and detail-oriented <strong>MCA post-graduate (2024&ndash;2026)</strong> seeking an entry-level
+          position as a
+          <strong>Python Developer</strong> or <strong>Software Test Engineer</strong>. Developed an innovative
+          <strong>Pupil Heart Rate Variability (HRV) Monitoring</strong> system leveraging computer vision and pupillary
+          fluctuation analysis, combining biomedical signal processing with machine learning to enable non-contact
+          physiological monitoring. Possesses solid knowledge of <strong>Python programming, Manual Testing, SDLC &amp;
+            STLC,
+            Test Case Design, Defect Tracking, SQL, Computer Vision, and Generative AI</strong>. Dedicated to ensuring
+          software
+          reliability, advancing biomedical AI research, and contributing to organizational success through analytical
+          precision and continuous learning.
+        </p>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="sec">
+      <div class="sl">
+        <div class="ibox ic">
+          <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="16 18 22 12 16 6" />
+            <polyline points="8 6 2 12 8 18" />
+          </svg>
+        </div>
+        <h2>Skills &amp; Technologies</h2>
+        <div class="sdiv"></div>
+      </div>
+      <div class="gc">
+        <div class="sk-grid">
+          <div class="sk-row"><span class="sk-lbl">Programming Languages</span>
+            <div class="tg"><span class="tag tv">Python</span><span class="tag tv">C</span><span
+                class="tag tv">Java</span></div>
+          </div>
+          <div class="sk-row"><span class="sk-lbl">Frontend Technologies</span>
+            <div class="tg"><span class="tag tc">HTML5</span><span class="tag tc">CSS3</span><span
+                class="tag tc">JavaScript</span><span class="tag tc">UI/UX</span></div>
+          </div>
+          <div class="sk-row"><span class="sk-lbl">Database</span>
+            <div class="tg"><span class="tag">SQL</span><span class="tag">MongoDB (CRUD)</span></div>
+          </div>
+          <div class="sk-row"><span class="sk-lbl">Testing &amp; QA</span>
+            <div class="tg"><span class="tag tp2">Manual Testing</span><span class="tag tp2">SDLC / STLC</span><span
+                class="tag tp2">Test Case Design</span><span class="tag tp2">Defect Tracking</span><span
+                class="tag tp2">Selenium</span></div>
+          </div>
+          <div class="sk-row"><span class="sk-lbl">AI / ML / CV</span>
+            <div class="tg"><span class="tag tv">OpenCV</span><span class="tag tv">TensorFlow</span><span
+                class="tag tv">Scikit-Learn</span><span class="tag tv">Pandas</span><span
+                class="tag tv">NumPy</span><span class="tag tv">Matplotlib</span><span class="tag tv">Generative
+                AI</span></div>
+          </div>
+          <div class="sk-row"><span class="sk-lbl">Tools &amp; Platforms</span>
+            <div class="tg"><span class="tag">Git &amp; GitHub</span><span class="tag">VS Code</span><span
+                class="tag">Google Colab</span><span class="tag">Flask</span><span class="tag">Power BI</span></div>
+          </div>
+          <div class="sk-row"><span class="sk-lbl">Biomedical Research</span>
+            <div class="tg"><span class="tag tc">Pupil HRV Analysis</span><span class="tag tc">Pupillometry</span><span
+                class="tag tc">Signal Processing</span><span class="tag tc">Real-time Detection</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section class="sec">
+      <div class="sl">
+        <div class="ibox ig">
+          <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+            <path d="M6 12v5c3 3 9 3 12 0v-5" />
+          </svg>
+        </div>
+        <h2>Education</h2>
+        <div class="sdiv"></div>
+      </div>
+      <div class="edu-list">
+        <div class="edu-e">
+          <div>
+            <div class="edu-n">Vikrama Simhapuri University</div>
+            <div class="edu-d">MCA &mdash; Master of Computer Applications</div>
+            <div class="edu-s">Post-Graduate &middot; Nellore, Andhra Pradesh</div>
+          </div>
+          <div class="edu-r">
+            <div class="edu-y">2024 &ndash; 2026</div>
+            <div class="edu-sc">Pursuing</div>
+          </div>
+        </div>
+        <div class="edu-e">
+          <div>
+            <div class="edu-n">Viswam Degree &amp; PG College</div>
+            <div class="edu-d">BCA &mdash; Bachelor of Computer Applications</div>
+            <div class="edu-s">Under-Graduate</div>
+          </div>
+          <div class="edu-r">
+            <div class="edu-y">2021 &ndash; 2024</div>
+            <div class="edu-sc">78%</div>
+          </div>
+        </div>
+        <div class="edu-e">
+          <div>
+            <div class="edu-n">Government Junior College</div>
+            <div class="edu-d">Intermediate &mdash; C&amp;E Vocational Course</div>
+            <div class="edu-s">Class XI &amp; XII</div>
+          </div>
+          <div class="edu-r">
+            <div class="edu-y">2019 &ndash; 2021</div>
+            <div class="edu-sc">81.8%</div>
+          </div>
+        </div>
+        <div class="edu-e">
+          <div>
+            <div class="edu-n">Government High School</div>
+            <div class="edu-d">SSC &mdash; Secondary School Certificate</div>
+            <div class="edu-s">Class X Board Examination</div>
+          </div>
+          <div class="edu-r">
+            <div class="edu-y">2018 &ndash; 2019</div>
+            <div class="edu-sc">98%</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ═══════ PAGE BREAK 1 → 2 ═══════ -->
+    <div class="page-break"></div>
+
+    <!-- PROJECTS -->
+
+    <section class="sec">
+      <div class="sl">
+        <div class="ibox iv">
+          <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
+            <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+          </svg>
+        </div>
+        <h2>Projects</h2>
+        <div class="sdiv"></div>
+      </div>
+
+      <!-- HRV PROJECT -->
+      <div class="gc pcard">
+        <div class="ph">
+          <div class="ptitle">&#128065;&#65039; Pupil Heart Rate Variability Monitoring via Pupillary Fluctuations</div>
+          <span class="pbadge bhrv">Featured Project</span>
+        </div>
+        <p class="pdesc">
+          Developed a novel non-contact biomedical system that monitors <strong>Heart Rate Variability (HRV)</strong>
+          through
+          real-time analysis of pupillary fluctuations captured via a standard webcam. The autonomic nervous system
+          modulates
+          pupil diameter in sync with cardiac cycles, enabling HRV estimation without physical sensors &mdash; bridging
+          computer vision, biomedical signal processing, and machine learning.
+        </p>
+        <ul class="pbul">
+          <li>Implemented real-time pupil detection and segmentation using <strong>OpenCV</strong> and
+            <strong>Dlib</strong> facial landmark detection with sub-pixel precision.</li>
+          <li>Extracted pupillary oscillation time-series signals and applied <strong>FFT-based frequency
+              analysis</strong> to isolate HRV-correlated bands (LF: 0.04&ndash;0.15 Hz, HF: 0.15&ndash;0.4 Hz).</li>
+          <li>Computed standard HRV metrics &mdash; <strong>SDNN, RMSSD, pNN50, LF/HF ratio</strong> &mdash; from
+            pupillary fluctuation data, validated against contact-based reference sensors.</li>
+          <li>Developed a <strong>Flask web application</strong> with live video feed, real-time HRV dashboard, and
+            autonomic stress-state classification using trained ML models.</li>
+          <li>Applied Butterworth bandpass filtering, noise reduction, and artifact rejection algorithms to ensure
+            signal fidelity under varied lighting conditions.</li>
+          <li>Evaluated system accuracy against standard PPG reference, demonstrating reliable non-invasive autonomic
+            biomarker estimation.</li>
+        </ul>
+        <div class="trow">
+          <span class="tag tv">Python</span><span class="tag tv">OpenCV</span><span class="tag tv">Dlib</span><span
+            class="tag tv">NumPy</span><span class="tag tv">SciPy</span><span class="tag tv">Scikit-Learn</span><span
+            class="tag tc">Flask</span><span class="tag tc">Matplotlib</span><span class="tag tp2">Signal
+            Processing</span><span class="tag tp2">HRV Analysis</span>
+        </div>
+      </div>
+
+      <!-- SHOPPING PROJECT -->
+      <div class="gc pcard">
+        <div class="ph">
+          <div class="ptitle">&#128722; Online Shopping Management System</div>
+          <span class="pbadge bshop">Full-Stack Project</span>
+        </div>
+        <p class="pdesc">
+          Built a comprehensive e-commerce platform with end-to-end user flow from authentication and product discovery
+          to
+          cart management and order tracking, using a modern full-stack architecture.
+        </p>
+        <ul class="pbul">
+          <li>Implemented <strong>JWT-based user authentication/registration</strong>, product catalog with search &amp;
+            filters, shopping cart, order placement, and payment gateway integration.</li>
+          <li>Developed admin dashboard for inventory management, analytics, and reporting modules with Swagger docs and
+            JUnit tests.</li>
+          <li>Built REST APIs using <strong>Spring Boot</strong> with Spring Security + MySQL/PostgreSQL for backend;
+            React + TypeScript + Tailwind for frontend.</li>
+          <li>Implemented Redis for cart caching, product/category CRUD, checkout flow, order tracking, and admin panel
+            for reports.</li>
+        </ul>
+        <div class="trow">
+          <span class="tag tc">React</span><span class="tag tc">TypeScript</span><span class="tag tv">Spring
+            Boot</span><span class="tag tv">Java</span><span class="tag">MySQL</span><span
+            class="tag">PostgreSQL</span><span class="tag">Redis</span><span class="tag">JWT</span><span
+            class="tag tp2">Swagger</span><span class="tag tp2">JUnit</span>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ═══════ PAGE BREAK 2 → 3 ═══════ -->
+    <div class="page-break"></div>
+
+    <!-- INTERNSHIP -->
+
+    <section class="sec">
+      <div class="sl">
+        <div class="ibox ip">
+          <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect width="20" height="14" x="2" y="7" rx="2" />
+            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+          </svg>
+        </div>
+        <h2>Internship</h2>
+        <div class="sdiv"></div>
+      </div>
+      <div class="gc">
+        <div class="ph">
+          <div>
+            <div class="ptitle">&#127800; Classification of Iris Prediction</div>
+            <div style="font-size:.82rem;color:var(--ts);margin-top:4px;">Supreme Infosolusions Private Limited
+              &nbsp;&middot;&nbsp; Python Full Stack Virtual Internship</div>
+          </div>
+          <span class="pbadge biris">Internship Project</span>
+        </div>
+        <div class="imeta">
+          <div class="mchip">&#9201; <strong>Duration:</strong>&nbsp;14 Weeks</div>
+          <div class="mchip">&#128197; <strong>Period:</strong>&nbsp;Dec 2025 &ndash; Apr 2026</div>
+          <div class="mchip">&#128187; <strong>Environment:</strong>&nbsp;Windows, Visual Studio</div>
+          <div class="mchip">&#128296; <strong>Languages:</strong>&nbsp;Python, Flask, HTML, CSS</div>
+        </div>
+        <p class="pdesc">Worked on Iris Flower Classification using <strong>SVM Machine Learning Algorithm</strong> to
+          predict species based on petal and sepal measurements.</p>
+        <ul class="pbul">
+          <li>Applied data preprocessing, feature selection, and model training using <strong>Support Vector Machine
+              (SVM)</strong> algorithm.</li>
+          <li>Evaluated model performance using accuracy, precision, and recall, achieving high classification accuracy
+            on the Iris dataset.</li>
+          <li>Implemented the project in Python using libraries like <strong>Pandas, NumPy, Matplotlib, and
+              Scikit-Learn</strong>.</li>
+          <li>Deployed trained model via a <strong>Flask web application</strong> for real-time species classification
+            through a clean UI.</li>
+        </ul>
+        <div class="trow">
+          <span class="tag tv">Python</span><span class="tag tv">Scikit-Learn</span><span class="tag tv">SVM</span><span
+            class="tag tc">Flask</span><span class="tag">Pandas</span><span class="tag">NumPy</span><span
+            class="tag">Matplotlib</span><span class="tag tp2">HTML</span><span class="tag tp2">CSS</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+    <section class="sec">
+      <div class="sl">
+        <div class="ibox ig">
+          <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="8" r="6" />
+            <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11" />
+          </svg>
+        </div>
+        <h2>Certifications</h2>
+        <div class="sdiv"></div>
+      </div>
+      <div class="cert-grid">
+        <div class="cert-c">
+          <div class="cicon" style="background:rgba(239,68,68,.15);color:#ef4444;font-size:.9rem;">&#127891;</div>
+          <div>
+            <div class="cname">Full Stack Data Science with Gen AI</div>
+            <div class="ciss">Python Life &mdash; Kiran Sagar</div>
+            <div class="cdate">Sep 23, 2026</div>
+          </div>
+        </div>
+        <div class="cert-c">
+          <div class="cicon iv">&#128013;</div>
+          <div>
+            <div class="cname">Python Full Stack Virtual Internship</div>
+            <div class="ciss">Supreme Infosolusions Pvt. Ltd.</div>
+            <div class="cdate">Dec 2025 &ndash; Apr 2026</div>
+          </div>
+        </div>
+        <div class="cert-c">
+          <div class="cicon ign">&#127807;</div>
+          <div>
+            <div class="cname">CRUD Operations in MongoDB</div>
+            <div class="ciss">MongoDB, Inc.</div>
+            <div class="cdate">Aug 21, 2025</div>
+          </div>
+        </div>
+        <div class="cert-c">
+          <div class="cicon ign">&#129302;</div>
+          <div>
+            <div class="cname">Generative AI Mastermind</div>
+            <div class="ciss">Outskill</div>
+            <div class="cdate">2025</div>
+          </div>
+        </div>
+        <div class="cert-c">
+          <div class="cicon ig">&#127891;</div>
+          <div>
+            <div class="cname">Career Guidance Session &mdash; Webinar</div>
+            <div class="ciss">Grad Guru Innovation (ISO-certified)</div>
+            <div class="cdate">Feb 17, 2026</div>
+          </div>
+        </div>
+        <div class="cert-c">
+          <div class="cicon ic">&#129504;</div>
+          <div>
+            <div class="cname">Machine Learning Completion</div>
+            <div class="ciss">Code Alpha</div>
+            <div class="cdate">2025</div>
+          </div>
+        </div>
+        <div class="cert-c">
+          <div class="cicon ip">&#128202;</div>
+          <div>
+            <div class="cname">SQL &amp; Power BI Completion</div>
+            <div class="ciss">Besant Technologies</div>
+            <div class="cdate">2025</div>
+          </div>
+        </div>
+        <div class="cert-c">
+          <div class="cicon iv">&#128040;</div>
+          <div>
+            <div class="cname">Python Completion Certificate</div>
+            <div class="ciss">Kaggle</div>
+            <div class="cdate">2025</div>
+          </div>
+        </div>
+        <div class="cert-c">
+          <div class="cicon ig">&#127909;</div>
+          <div>
+            <div class="cname">Live Meeting Summarizer Application</div>
+            <div class="ciss">Infosys</div>
+            <div class="cdate">2025</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACHIEVEMENTS -->
+    <section class="sec">
+      <div class="sl">
+        <div class="ibox ig">
+          <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6" />
+            <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18" />
+            <path d="M4 22h16" />
+            <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22" />
+            <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22" />
+            <path d="M18 2H6v7a6 6 0 0 0 12 0V2z" />
+          </svg>
+        </div>
+        <h2>Academic Achievements</h2>
+        <div class="sdiv"></div>
+      </div>
+      <div class="ach-list">
+        <div class="ach-i">
+          <div class="aemoji">&#127959;</div>
+          <div class="atxt"><strong>Central Zone Wicket-Keeper Batsman</strong>Represented the central zone in
+            inter-zone cricket as a specialised wicket-keeper batsman.</div>
+        </div>
+        <div class="ach-i">
+          <div class="aemoji">&#129358;</div>
+          <div class="atxt"><strong>All India Softball Player</strong>Selected and represented the national team at All
+            India level softball competitions, demonstrating elite athletic discipline.</div>
+        </div>
+        <div class="ach-i">
+          <div class="aemoji">&#129355;</div>
+          <div class="atxt"><strong>Taekwondo Silver Medallist</strong>Earned Silver Medal in Taekwondo at
+            State/National level competitions &mdash; displaying focus, resilience, and competitive spirit.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOBBIES -->
+    <section class="sec">
+      <div class="sl">
+        <div class="ibox ip">
+          <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path
+              d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+          </svg>
+        </div>
+        <h2>Hobbies &amp; Interests</h2>
+        <div class="sdiv"></div>
+      </div>
+      <div class="hrow">
+        <div class="hpill">&#127941; Playing Sports</div>
+        <div class="hpill">&#127925; Listening to Music</div>
+        <div class="hpill">&#129302; Exploring AI &amp; ML</div>
+        <div class="hpill">&#129516; Biomedical Research</div>
+        <div class="hpill">&#128187; Open Source Coding</div>
+      </div>
+    </section>
+
+  </div>
+
+  <script>
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.style.opacity = '1'; e.target.style.transform = 'translateY(0)' }
+      });
+    }, { threshold: 0.06 });
+    document.querySelectorAll('.gc,.edu-e,.cert-c,.ach-i').forEach(el => {
+      el.style.opacity = '0'; el.style.transform = 'translateY(18px)';
+      el.style.transition = 'opacity 0.5s ease,transform 0.5s ease';
+      obs.observe(el);
+    });
+  </script>
+</body>
+
+</html>

@@ -1,5 +1,6 @@
 # macOS
 .DS_Store
+*.DS_Store
 
 # Python
 __pycache__/
@@ -7,6 +8,18 @@ __pycache__/
 *.egg-info/
 .venv/
 venv/
+env/
+.env
 
-# Jupyter
+# Jupyter & IDE
 .ipynb_checkpoints/
+.vscode/
+.idea/
+.kilo/
+
+# Temporary & Unrelated downloads
+online food delivery website/
+online food delivery website.zip
+.pytest_cache/
+.ruff_cache/
+*.log

@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Notebooks
+.ipynb_checkpoints/
+
+# macOS
+.DS_Store
+
+# Datasets (235 MB, kept outside version control)
+data/raw/
+data/processed/
+
+# Trained models and metrics (regenerate with scripts/)
+artifacts/*.keras
+artifacts/*.joblib
+artifacts/*.npy
+artifacts/*.json
+!artifacts/.gitkeep
+
+# Generated figures
+docs/figures/*.png
+
+# Generated documents
+docs/*.docx
+docs/*.pptx
+# Run logs
+*.log

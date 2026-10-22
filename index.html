@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OculoAI - Clinical Dry Eye Diagnostic Suite</title>
+  <meta name="description" content="Advanced clinical AI platform for Dry Eye Disease screening. Infrared meibography, OSDI neural modeling, blink dynamics." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:#080e1a;--glass:rgba(255,255,255,0.04);--border:rgba(255,255,255,0.08);
+      --accent:#38bdf8;--accent2:#818cf8;--accent3:#34d399;--accent4:#fb923c;
+      --text:#f1f5f9;--muted:#94a3b8;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;}
+    .bg-glow{position:fixed;inset:0;z-index:0;pointer-events:none;
+      background:radial-gradient(ellipse 80% 60% at 20% 10%,rgba(56,189,248,.12) 0%,transparent 60%),
+      radial-gradient(ellipse 60% 50% at 80% 80%,rgba(129,140,248,.10) 0%,transparent 60%);
+      animation:pulse 8s ease-in-out infinite alternate;}
+    @keyframes pulse{from{opacity:.7}to{opacity:1}}
+    .grid{position:fixed;inset:0;z-index:0;pointer-events:none;
+      background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+      background-size:60px 60px;}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;
+      justify-content:space-between;padding:1rem 2.5rem;
+      background:rgba(8,14,26,.8);backdrop-filter:blur(20px);
+      border-bottom:1px solid var(--border);}
+    .logo{display:flex;align-items:center;gap:.5rem;font-family:'Space Grotesk',sans-serif;
+      font-weight:700;font-size:1.2rem;color:var(--text);text-decoration:none;}
+    .nav-links{display:flex;gap:1.5rem;list-style:none;}
+    .nav-links a{color:var(--muted);text-decoration:none;font-size:.875rem;font-weight:500;transition:color .2s;}
+    .nav-links a:hover{color:var(--accent);}
+    .nav-cta{display:flex;gap:.75rem;}
+    .btn{display:inline-flex;align-items:center;gap:.4rem;padding:.5rem 1.1rem;border-radius:8px;
+      font-size:.85rem;font-weight:600;cursor:pointer;text-decoration:none;transition:all .2s;border:none;}
+    .btn-p{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;
+      box-shadow:0 0 20px rgba(56,189,248,.3);}
+    .btn-p:hover{transform:translateY(-1px);box-shadow:0 0 30px rgba(56,189,248,.5);}
+    .btn-g{background:var(--glass);border:1px solid var(--border);color:var(--text);}
+    .btn-g:hover{background:rgba(255,255,255,.08);}
+    .btn-lg{padding:.8rem 1.8rem;font-size:.95rem;border-radius:10px;}
+    .hero{position:relative;z-index:1;min-height:100vh;display:flex;align-items:center;
+      justify-content:center;padding:8rem 2rem 4rem;text-align:center;}
+    .badge{display:inline-flex;align-items:center;gap:.5rem;padding:.35rem 1rem;
+      border-radius:999px;background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.25);
+      font-size:.78rem;font-weight:600;color:var(--accent);margin-bottom:1.5rem;}
+    .dot{width:6px;height:6px;border-radius:50%;background:var(--accent3);
+      animation:blink 1.5s ease-in-out infinite;}
+    @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+    h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(2.4rem,6vw,5rem);
+      font-weight:800;line-height:1.1;
+      background:linear-gradient(135deg,#fff 0%,var(--accent) 50%,var(--accent2) 100%);
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+      background-clip:text;margin-bottom:1rem;}
+    .sub{font-size:clamp(1rem,2vw,1.25rem);color:var(--muted);max-width:680px;
+      margin:0 auto 2.5rem;line-height:1.7;}
+    .stats{display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap;margin-bottom:2rem;}
+    .chip{padding:.5rem 1.2rem;border-radius:999px;background:var(--glass);
+      border:1px solid var(--border);font-size:.85rem;color:var(--muted);}
+    .chip strong{color:var(--text);}
+    .actions{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:3rem;}
+    .iris-wrap{margin:0 auto 2rem;width:120px;height:120px;position:relative;}
+    .iris{width:120px;height:120px;border-radius:50%;
+      background:radial-gradient(circle at 35% 35%,#7dd3fc 0%,#0ea5e9 25%,#1e40af 50%,#0f172a 75%,#000 100%);
+      box-shadow:0 0 0 3px rgba(56,189,248,.3),0 0 30px rgba(56,189,248,.4),0 0 60px rgba(56,189,248,.2);
+      animation:hrot 6s linear infinite;position:relative;}
+    .iris::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+      width:36px;height:36px;border-radius:50%;background:#000;}
+    .ring{position:absolute;inset:-4px;border-radius:50%;border:2px solid rgba(56,189,248,.3);
+      animation:pring 2s ease-out infinite;}
+    .ring:nth-child(2){inset:-10px;animation-delay:.5s;opacity:.6;}
+    .ring:nth-child(3){inset:-18px;animation-delay:1s;opacity:.3;}
+    @keyframes hrot{to{filter:hue-rotate(360deg)}}
+    @keyframes pring{0%{transform:scale(1);opacity:.6}100%{transform:scale(1.15);opacity:0}}
+    section{position:relative;z-index:1;padding:5rem 2rem;}
+    .container{max-width:1100px;margin:0 auto;}
+    .lbl{font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+      color:var(--accent);margin-bottom:.75rem;}
+    h2{font-family:'Space Grotesk',sans-serif;font-size:clamp(1.8rem,3.5vw,2.6rem);
+      font-weight:700;margin-bottom:1rem;}
+    .desc{color:var(--muted);font-size:1.05rem;line-height:1.7;max-width:580px;}
+    .grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:1.25rem;margin-top:3rem;}
+    .card{background:var(--glass);border:1px solid var(--border);border-radius:16px;
+      padding:1.75rem;transition:all .3s;}
+    .card:hover{transform:translateY(-4px);border-color:rgba(56,189,248,.25);
+      box-shadow:0 8px 32px rgba(56,189,248,.1);}
+    .ci{font-size:2rem;margin-bottom:1rem;}
+    .ct{font-weight:700;font-size:1rem;margin-bottom:.5rem;}
+    .cd{font-size:.875rem;color:var(--muted);line-height:1.6;}
+    .tag{display:inline-block;margin-top:.75rem;padding:.2rem .6rem;border-radius:6px;
+      font-size:.72rem;font-weight:600;}
+    .tb{background:rgba(56,189,248,.12);color:var(--accent);}
+    .tp{background:rgba(129,140,248,.12);color:var(--accent2);}
+    .tg{background:rgba(52,211,153,.12);color:var(--accent3);}
+    .to{background:rgba(251,146,60,.12);color:var(--accent4);}
+    .ds3{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:3rem;}
+    @media(max-width:768px){.ds3{grid-template-columns:1fr;}.dep2{grid-template-columns:1fr !important;}}
+    .dc{background:var(--glass);border:1px solid var(--border);border-radius:14px;
+      padding:1.5rem;text-align:center;}
+    .dn{font-family:'Space Grotesk',sans-serif;font-size:2.5rem;font-weight:800;
+      background:linear-gradient(135deg,var(--accent),var(--accent2));
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+    .dl{font-size:.875rem;color:var(--muted);margin-top:.25rem;}
+    .dep2{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:3rem;}
+    .dcard{background:var(--glass);border:1px solid var(--border);border-radius:18px;
+      padding:2rem;transition:all .3s;position:relative;overflow:hidden;}
+    .dcard.feat{border-color:rgba(56,189,248,.3);background:rgba(56,189,248,.04);}
+    .dcard.feat::after{content:'RECOMMENDED';position:absolute;top:1rem;right:1rem;
+      font-size:.65rem;font-weight:800;letter-spacing:.1em;color:var(--accent);
+      background:rgba(56,189,248,.12);padding:.2rem .5rem;border-radius:4px;}
+    .dcard:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,0,0,.3);}
+    .di{font-size:2.5rem;margin-bottom:1rem;}
+    .dt{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.2rem;margin-bottom:.5rem;}
+    .dd{font-size:.875rem;color:var(--muted);line-height:1.6;margin-bottom:1.5rem;}
+    .steps{list-style:none;margin-bottom:1.5rem;}
+    .steps li{display:flex;align-items:flex-start;gap:.6rem;font-size:.83rem;
+      color:var(--muted);margin-bottom:.5rem;line-height:1.5;}
+    .sn{min-width:20px;height:20px;border-radius:50%;background:rgba(255,255,255,.06);
+      border:1px solid var(--border);display:flex;align-items:center;justify-content:center;
+      font-size:.7rem;font-weight:700;color:var(--accent);flex-shrink:0;}
+    code{font-family:monospace;font-size:.82em;background:rgba(255,255,255,.06);
+      padding:.1em .35em;border-radius:4px;color:var(--accent3);}
+    .tree{background:rgba(0,0,0,.4);border:1px solid var(--border);border-radius:14px;
+      padding:1.75rem;margin-top:2rem;font-family:monospace;font-size:.85rem;
+      line-height:1.9;overflow-x:auto;}
+    .td{color:var(--accent);font-weight:600;}
+    .tf{color:var(--muted);}
+    .tc{color:rgba(148,163,184,.5);}
+    .sec2{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:2rem;}
+    @media(max-width:640px){.sec2{grid-template-columns:1fr;}}
+    .scard{background:var(--glass);border:1px solid var(--border);border-radius:14px;
+      padding:1.5rem;display:flex;gap:1rem;align-items:flex-start;}
+    .sicon{font-size:1.5rem;flex-shrink:0;}
+    .stitle{font-weight:600;font-size:.9rem;margin-bottom:.3rem;}
+    .sdesc{font-size:.8rem;color:var(--muted);line-height:1.5;}
+    footer{position:relative;z-index:1;border-top:1px solid var(--border);
+      padding:3rem 2rem;text-align:center;}
+    .flogo{font-family:'Space Grotesk',sans-serif;font-size:1.3rem;font-weight:700;margin-bottom:.5rem;}
+    .fdesc{color:var(--muted);font-size:.875rem;margin-bottom:1.5rem;}
+    .flinks{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
+    .flinks a{color:var(--muted);text-decoration:none;font-size:.85rem;transition:color .2s;}
+    .flinks a:hover{color:var(--accent);}
+    .fcopy{color:rgba(148,163,184,.4);font-size:.8rem;margin-top:1.5rem;}
+    .divider{height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent);
+      margin:0 auto;max-width:800px;}
+    .fi{opacity:0;transform:translateY(24px);transition:all .6s ease;}
+    .fi.vis{opacity:1;transform:translateY(0);}
+  </style>
+</head>
+<body>
+<div class="bg-glow"></div>
+<div class="grid"></div>
+<nav>
+  <a href="#" class="logo">&#128065;&#65039; OculoAI</a>
+  <ul class="nav-links">
+    <li><a href="#caps">Capabilities</a></li>
+    <li><a href="#data">Datasets</a></li>
+    <li><a href="#deploy">Deploy</a></li>
+    <li><a href="#sec">Security</a></li>
+  </ul>
+  <div class="nav-cta">
+    <a href="https://github.com/indukurunaveenreddy/Dry-Eye-disease" class="btn btn-g" target="_blank">&#11088; GitHub</a>
+    <a href="https://codespaces.new/indukurunaveenreddy/Dry-Eye-disease?quickstart=1" class="btn btn-p" target="_blank">&#9889; Run Now</a>
+  </div>
+</nav>
+<section class="hero">
+  <div>
+    <div class="iris-wrap">
+      <div class="ring"></div><div class="ring"></div><div class="ring"></div>
+      <div class="iris"></div>
+    </div>
+    <div class="badge"><span class="dot"></span>Clinical AI Research Platform</div>
+    <h1>OculoAI<br/>Dry Eye Diagnostic Suite</h1>
+    <p class="sub">An advanced clinical AI platform for <strong>Dry Eye Disease (DED)</strong> screening. Combines infrared meibography, real-time ocular tracking, 12-item OSDI neural modeling, and 6-stage blink dynamics analysis.</p>
+    <div class="stats">
+      <div class="chip"><strong>11,989</strong> Multimodal Records</div>
+      <div class="chip"><strong>999</strong> Infrared Scans</div>
+      <div class="chip"><strong>10,760</strong> Video Frames</div>
+      <div class="chip"><strong>230</strong> OSDI Patients</div>
+    </div>
+    <div class="actions">
+      <a href="https://codespaces.new/indukurunaveenreddy/Dry-Eye-disease?quickstart=1" class="btn btn-p btn-lg" target="_blank">&#9889; Open in GitHub Codespaces</a>
+      <a href="https://github.com/indukurunaveenreddy/Dry-Eye-disease" class="btn btn-g btn-lg" target="_blank">&#128193; View Source Code</a>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+<section id="caps">
+  <div class="container">
+    <p class="lbl fi">Core Modules</p>
+    <h2 class="fi">&#127775; Key Capabilities</h2>
+    <p class="desc fi">Six integrated AI-powered clinical modules for comprehensive dry eye assessment.</p>
+    <div class="grid3">
+      <div class="card fi"><div class="ci">&#128065;&#65039;</div><div class="ct">Infrared Meibography Screening</div><div class="cd">GLCM spatial texture extraction, gland dropout detection, and ML classification across 999 non-contact scans.</div><span class="tag tb">GLCM + ML Classifier</span></div>
+      <div class="card fi"><div class="ci">&#128249;</div><div class="ct">Live Camera Ocular Tracking</div><div class="cd">Real-time Haar cascade facial landmark detection with automated ocular cropping and gaze classification.</div><span class="tag tp">OpenCV + Haar Cascade</span></div>
+      <div class="card fi"><div class="ci">&#128203;</div><div class="ct">12-Item OSDI Neural Modeling</div><div class="cd">MLP classification predicting symptom severity: Normal, Mild, Moderate, Severe from 230-patient OSDI-12 cohort.</div><span class="tag tg">MLP Neural Network</span></div>
+      <div class="card fi"><div class="ci">&#9889;</div><div class="ct">Blink Completeness &amp; Gaze Dynamics</div><div class="cd">VGG-19 transfer learning classifying 6 ocular orientations across 10,760 video frames.</div><span class="tag to">VGG-19 Transfer Learning</span></div>
+      <div class="card fi"><div class="ci">&#129302;</div><div class="ct">OculoAI Clinical Chatbot</div><div class="cd">Interactive consultation assistant with dry eye guidance and 20-20-20 visual hygiene recommendations.</div><span class="tag tb">NLP Chatbot Engine</span></div>
+      <div class="card fi"><div class="ci">&#128202;</div><div class="ct">Multimodal Datasets Hub</div><div class="cd">Explorer for 11,989 multimodal records with interactive filtering, pipeline integration, and CSV/Excel export.</div><span class="tag tp">Plotly + Streamlit</span></div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+<section id="data">
+  <div class="container">
+    <p class="lbl fi">Clinical Data</p>
+    <h2 class="fi">&#128202; Multimodal Dataset Overview</h2>
+    <p class="desc fi">Three clinical data sources combined into a unified 11,989-record corpus.</p>
+    <div class="ds3 fi">
+      <div class="dc"><div class="dn">999</div><div class="dl">Infrared Meibography Scans<br/><small style="color:rgba(148,163,184,.6)">549 Affected &middot; 450 Normal</small></div></div>
+      <div class="dc"><div class="dn">10,760</div><div class="dl">Blink &amp; Gaze Video Frames<br/><small style="color:rgba(148,163,184,.6)">6 Orientations</small></div></div>
+      <div class="dc"><div class="dn">230</div><div class="dl">OSDI Survey Patients<br/><small style="color:rgba(148,163,184,.6)">12-item clinical cohort</small></div></div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+<section id="deploy">
+  <div class="container">
+    <p class="lbl fi">Cloud Deployment</p>
+    <h2 class="fi">&#9729;&#65039; Run Directly on GitHub</h2>
+    <p class="desc fi">Launch the full application instantly in the cloud &mdash; no local setup needed.</p>
+    <div class="dep2 fi">
+      <div class="dcard feat">
+        <div class="di">&#9889;</div>
+        <div class="dt">GitHub Codespaces</div>
+        <div class="dd">Provision a full Linux cloud container with all dependencies auto-installed. Live in under 60 seconds.</div>
+        <ul class="steps">
+          <li><span class="sn">1</span>Click the button below to open Codespaces</li>
+          <li><span class="sn">2</span>GitHub auto-installs <code>requirements.txt</code> and boots app</li>
+          <li><span class="sn">3</span>Click <strong>Open in Browser</strong> &rarr; port <code>8501</code></li>
+          <li><span class="sn">4</span>Login with <code>dr.chen</code> / <code>oculo2026</code></li>
+        </ul>
+        <a href="https://codespaces.new/indukurunaveenreddy/Dry-Eye-disease?quickstart=1" class="btn btn-p" target="_blank" style="width:100%;justify-content:center;">&#9889; Open in GitHub Codespaces</a>
+      </div>
+      <div class="dcard">
+        <div class="di">&#127760;</div>
+        <div class="dt">Streamlit Community Cloud</div>
+        <div class="dd">Deploy a permanent, publicly-accessible web URL for free, connected to this GitHub repository.</div>
+        <ul class="steps">
+          <li><span class="sn">1</span>Visit <a href="https://share.streamlit.io" target="_blank" style="color:var(--accent)">share.streamlit.io</a></li>
+          <li><span class="sn">2</span>Sign in with GitHub as <code>indukurunaveenreddy</code></li>
+          <li><span class="sn">3</span>Main file path: <code>app.py</code>, branch: <code>main</code></li>
+          <li><span class="sn">4</span>Click <strong>Deploy!</strong> &mdash; live in ~2 minutes</li>
+        </ul>
+        <a href="https://share.streamlit.io/deploy?repository=indukurunaveenreddy/Dry-Eye-disease&branch=main&mainModule=app.py" class="btn btn-g" target="_blank" style="width:100%;justify-content:center;">&#127760; Deploy to Streamlit Cloud</a>
+      </div>
+    </div>
+    <div class="tree fi" style="margin-top:2rem;">
+      <span style="color:var(--accent2);font-weight:700;"># Clone &amp; Run Locally</span><br/>
+      git clone https://github.com/indukurunaveenreddy/Dry-Eye-disease.git<br/>
+      cd Dry-Eye-disease<br/>
+      pip install -r requirements.txt<br/>
+      streamlit run app.py<br/>
+      <span style="color:rgba(148,163,184,.5)"># Open http://localhost:8501</span>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+<section>
+  <div class="container">
+    <p class="lbl fi">Architecture</p>
+    <h2 class="fi">&#128193; Repository Structure</h2>
+    <div class="tree fi">
+<span class="td">Dry-Eye-disease/</span>
+&#9500;&#9472;&#9472; <span class="td">Dry Eye Disease/Source Code/Eye DIsease/</span>
+&#9474;   &#9500;&#9472;&#9472; <span class="tf">Login.py</span>        <span class="tc"># Glassmorphic Clinician Auth Portal</span>
+&#9474;   &#9500;&#9472;&#9472; <span class="tf">Prediction.py</span>   <span class="tc"># Main Clinical Diagnostic Suite &amp; Datasets Hub</span>
+&#9474;   &#9500;&#9472;&#9472; <span class="tf">ui_theme.py</span>     <span class="tc"># Glassmorphism Design System &amp; CSS</span>
+&#9474;   &#9500;&#9472;&#9472; <span class="tf">eye_model.py</span>    <span class="tc"># Haar cascade &amp; ocular tracking model</span>
+&#9474;   &#9500;&#9472;&#9472; <span class="tf">chatbot.py</span>      <span class="tc"># Clinical chatbot engine</span>
+&#9474;   &#9500;&#9472;&#9472; <span class="tf">Dataset.xlsx</span>    <span class="tc"># 230-Patient OSDI-12 cohort</span>
+&#9474;   &#9500;&#9472;&#9472; <span class="td">Dataset/</span>        <span class="tc"># 999 meibography scans (549+450)</span>
+&#9474;   &#9492;&#9472;&#9472; <span class="td">Blink/</span>          <span class="tc"># 10,760 video frames (6 orientations)</span>
+&#9500;&#9472;&#9472; <span class="tf">app.py</span>              <span class="tc"># Cloud-ready entrypoint</span>
+&#9500;&#9472;&#9472; <span class="tf">requirements.txt</span>    <span class="tc"># Python dependencies</span>
+&#9500;&#9472;&#9472; <span class="tf">.streamlit/config.toml</span>
+&#9492;&#9472;&#9472; <span class="tf">.devcontainer/</span>      <span class="tc"># GitHub Codespaces config</span>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+<section id="sec">
+  <div class="container">
+    <p class="lbl fi">Privacy &amp; Security</p>
+    <h2 class="fi">&#128274; Security &amp; Privacy</h2>
+    <div class="sec2 fi">
+      <div class="scard"><div class="sicon">&#128421;&#65039;</div><div><div class="stitle">100% On-Device Processing</div><div class="sdesc">Local SQLite authentication with zero external cloud telemetry. All model inference runs on the clinician's machine.</div></div></div>
+      <div class="scard"><div class="sicon">&#128737;&#65039;</div><div><div class="stitle">HIPAA / GDPR Design Readiness</div><div class="sdesc">Localized inference ensures sensitive patient imagery never leaves the local environment. No external API calls.</div></div></div>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="flogo">&#128065;&#65039; OculoAI</div>
+  <div class="fdesc">Clinical Dry Eye Diagnostic Suite &middot; Built with &#10084;&#65039; for ophthalmic research</div>
+  <div class="flinks">
+    <a href="https://github.com/indukurunaveenreddy/Dry-Eye-disease" target="_blank">GitHub Repository</a>
+    <a href="https://github.com/indukurunaveenreddy/Dry-Eye-disease/blob/main/README.md" target="_blank">Documentation</a>
+    <a href="https://codespaces.new/indukurunaveenreddy/Dry-Eye-disease?quickstart=1" target="_blank">Launch App</a>
+    <a href="https://github.com/indukurunaveenreddy" target="_blank">@indukurunaveenreddy</a>
+  </div>
+  <div class="fcopy">&#169; 2026 Naveen Reddy Indukuru &middot; OculoAI Clinical Dry Eye Suite &middot; MIT License</div>
+</footer>
+<script>
+  const obs = new IntersectionObserver(es => es.forEach(e => {if(e.isIntersecting)e.target.classList.add('vis');}),{threshold:.1});
+  document.querySelectorAll('.fi').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

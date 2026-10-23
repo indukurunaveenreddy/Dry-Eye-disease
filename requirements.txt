@@ -1,29 +1,21 @@
-# Core numerics and modelling
+# Core app
+streamlit==1.40.0
+streamlit-option-menu==0.3.13
+
+# Data & ML (needed at startup)
 numpy==1.26.4
 pandas==2.2.2
-scipy==1.13.1
 scikit-learn==1.5.1
-scikit-image==0.24.0
-tensorflow==2.19.0
-
-# Image handling
-pillow==10.4.0
-opencv-python-headless>=4.8.0
-
-# Visualisation and reporting
-matplotlib==3.9.2
-seaborn==0.13.2
-plotly==5.24.1
-openpyxl==3.1.5
-
-# Application and persistence
-streamlit==1.64.0
 joblib==1.4.2
 
-# Document generation
-python-docx==1.2.0
-python-pptx==1.0.2
+# Image processing (needed at startup)
+opencv-python-headless>=4.8.0
+pillow==10.4.0
+matplotlib==3.9.2
+scikit-image==0.24.0
 
-# Tooling
-pytest==7.4.4
-ruff==0.16.10
+# Excel export (used in some features)
+openpyxl==3.1.5
+
+# Deep learning (only used in training screens - lazy imported)
+tensorflow-cpu==2.17.0
